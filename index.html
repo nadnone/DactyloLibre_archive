@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Dactylo Libre</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="score">
+        <div class="char">
+          Caractères: <span id="char">0</span>
+        </div>
+        <div class="timer">
+          Temps: <span id="time">0</span> secondes
+        </div>
+        <div id="start_info" class="start">
+          Pressez Espace pour commencer
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="reader" id="what2write">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="letters">
+          <div id="affichage_lettres" class="minibox">
+            x
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+      require("./index.js");
+    </script>
+  </body>
+</html>

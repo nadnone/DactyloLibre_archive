@@ -1,0 +1,15 @@
+{
+  "name": "dactylolibre",
+  "version": "1.0.0",
+  "description": "Programme de dactylographie libre",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nadir Felder",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.4"
+  },
+  "dependencies": {}
+}

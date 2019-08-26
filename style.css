@@ -1,0 +1,59 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5%;
+  background-color: #bdc3c7;
+  font-weight: bold;
+  padding: 10px;
+}
+.letters {
+  font-size: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+}
+.minibox{
+  background-color: rgba(189, 195, 199,1.0);
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgba(41, 128, 185,1.0);
+  border-radius: 25px;
+}
+
+.start {
+  color: rgba(192, 57, 43,1.0);
+}
+
+.reader {
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  align-items: center;
+  height: 65%;
+  background-color: rgba(41, 128, 185,0.8);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0px 20px;
+
+}
+.container {
+  height: 100%;
+  width: auto;
+  background-color: #34495e;
+}
