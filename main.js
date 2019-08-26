@@ -29,6 +29,7 @@ ipcMain.on("writer", (event, arg) => {
 
 ipcMain.on("starter", (event, arg) => {
   if(arg === true){
+    event.reply("scoreChar", 0);
     timerId = setInterval(timer, 1000);
 
   }
