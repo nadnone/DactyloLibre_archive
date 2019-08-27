@@ -1,7 +1,7 @@
 # DactyloLibre
  Programme de dactylographie libre
 
-en cours de développemen
+en cours de développement
 
 ![alt Demo1 DactyloLibre](https://docs.google.com/uc?export=open&id=1htabibKwVzSFUuFYffEYRTOY21MvJ_6A "Demo1")
 
