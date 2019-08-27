@@ -2,9 +2,10 @@ const { app, BrowserWindow, Menu, webContents, dialog, ipcMain } = require('elec
 const electron = require("electron");
 
 
-const createMainwindow = require("./win/createMainWindow.js");
-const createStatswindow = require("./win/createStatsWindow.js");
+const createMainwindow = require("./win/main/createMainWindow.js");
+const createStatswindow = require("./win/stats/createStatsWindow.js");
 const loadWhat2Write = require("./func/loadWhat2Write.js");
+const statsWindowListener = require("./win/stats/statsWindowListener.js");
 
 let reader;
 let emplacement = 0;
@@ -61,6 +62,7 @@ function timer(){
     }, (response) => {
       if(response !== null && response !== undefined){
           createStatswindow();
+          statsWindowListener(emplacement+1, t);
       }
     });
   }

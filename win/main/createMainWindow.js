@@ -12,10 +12,11 @@ module.exports = function (){
     }
   });
 
-  win.loadFile('index.html');
+  win.loadFile('./win/main/index.html');
   //win.webContents.openDevTools();
-
-
+  win.on("close", () => {
+    app.quit();
+  });
   const template = [
     {
       label: "A propos",

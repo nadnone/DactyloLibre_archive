@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Dactylo Libre</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="score">
+        <div class="char">
+          Caractères: <span id="char">0</span>
+        </div>
+        <div class="timer">
+          Temps: <span id="time">0</span>
+        </div>
+        <div id="start_info" class="start">
+          Pressez Espace pour commencer
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="reader" id="what2write">
+
+        </div>
+        <div class="letters">
+          <div class="reader_letters">
+            <div id="affichage_readerm2" class="minibox minibox_whichLetter">
+
+            </div>
+            <div id="affichage_readerm1" class="minibox minibox_whichLetter">
+
+            </div>
+            <div id="affichage_reader" class="minibox minibox_whichLetter">
+
+            </div>
+            <div id="affichage_readerp1" class="minibox minibox_whichLetter">
+
+            </div>
+            <div id="affichage_readerp2" class="minibox minibox_whichLetter">
+
+            </div>
+          </div>
+          <div id="affichage_lettres" class="minibox">
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+      require("./index.js");
+    </script>
+  </body>
+</html>

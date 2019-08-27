@@ -5,14 +5,14 @@ module.exports = function (){
 
   // Cree la fenetre du navigateur.
   let win = new BrowserWindow({
-    width: 400,
-    height: 200,
+    width: 600,
+    height: 500,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  win.loadFile('./stats/stats.html');
+  win.loadFile('./win/stats/stats.html');
   //win.webContents.openDevTools();
 
   const template = [

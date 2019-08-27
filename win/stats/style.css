@@ -1,0 +1,60 @@
+@import url("../../res/fonts/Poppins-Medium.ttf");
+
+body, html {
+  background-color: rgba(36, 37, 42, 1);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 25px 0;
+
+}
+.scores{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.tableDiv {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 100%;
+  height: 75vh;
+}
+.tableScore {
+  background-color: rgba(52, 73, 94, 1);
+  width: 100vw;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.tr {
+  display: flex;
+  flex-direction: row;
+}
+.th, .td{
+  display: block;
+  text-align: center;
+  width: 25%;
+}
+.th {
+  background-color: rgba(228, 241, 254, 1);
+  color: black;
+  font-weight: bolder;
+}
