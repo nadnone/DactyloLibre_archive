@@ -4,12 +4,20 @@
   "description": "Programme de dactylographie libre",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build-wind": "electron-packager ./ DactyloLibre --platform=win32 --app-copyright=MIT --app-version=1.0.0 --arch=x64 --out dist/",
+    "setup-wind": "electron-installer-windows --src dist/DactyloLibre-win32-x64/ --dest dist/installers/",
+    "build-linux": ""
+
   },
-  "author": "Nadir Felder",
-  "license": "ISC",
+  "author": "Nadir Felder <contact@nadirfelder.xyz>",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.4"
+    "electron": "*",
+    "electron-installer-windows": "^2.0.0",
+    "electron-packager": "^14.0.4"
   },
   "dependencies": {
     "fs": "^0.0.1-security"
