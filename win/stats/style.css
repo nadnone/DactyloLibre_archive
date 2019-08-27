@@ -20,8 +20,7 @@ body, html {
   display: flex;
   flex-direction: row;
   text-align: center;
-  padding: 25px 0;
-
+  padding: 5vh 0;
 }
 .scores{
   display: flex;
@@ -32,29 +31,36 @@ body, html {
 .tableDiv {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  width: 100%;
-  height: 75vh;
+  overflow-y: auto;
+  width: 100vw;
+  height: 70vh;
 }
 .tableScore {
-  background-color: rgba(52, 73, 94, 1);
+  background-color: rgba(44, 62, 80, 1);
   width: 100vw;
-  height: 80%;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   color: white;
+
+
 }
 .tr {
   display: flex;
   flex-direction: row;
+  padding: 5px 0;
 }
 .th, .td{
   display: block;
   text-align: center;
-  width: 25%;
+  width: 25vw;
 }
 .th {
-  background-color: rgba(228, 241, 254, 1);
-  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(52, 73, 94, 1);
+  color: white;
   font-weight: bolder;
+  padding: 2.5vh 0;
 }
