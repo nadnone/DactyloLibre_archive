@@ -9,6 +9,7 @@ let timerUpdate;
 let waitFor;
 let initialized = false;
 let argMemo;
+let fautes = 0;
 
 window.onload = () => {
   init();
@@ -56,6 +57,8 @@ function compare_text(){
 ipc.on("scoreChar", (event, arg) => {
   if(argMemo === arg){
     document.getElementById("affichage_lettres").style.color = "rgba(207, 0, 15, 1)";
+    document.getElementById("fautes").innerText = fautes++;
+    ipc.send("fautes", fautes);
   }
   else {
     document.getElementById("affichage_lettres").style.color = "black";
@@ -86,7 +89,15 @@ ipc.on("time", (event, arg) => {
   h = h.split(".")[0];
   min = min.split(".")[0];
 
-
+  if(h < 10){
+    h = "0"+h
+  }
+  if(min < 10){
+    min = "0"+min
+  }
+  if(sec < 10){
+    sec = "0"+sec
+  }
 
   document.getElementById("time").innerText = h + ":" + min +":" + sec;
 });

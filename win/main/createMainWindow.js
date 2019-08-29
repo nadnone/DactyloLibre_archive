@@ -1,12 +1,21 @@
 const { app, BrowserWindow, Menu, webContents, dialog, ipcMain } = require('electron');
 const electron = require("electron");
+let path = require('path');
+const nativeImage = require("electron").nativeImage;
+const rootPath = require("electron-root-path").rootPath;
+
+let image = nativeImage.createFromPath(rootPath + '/res/icons/icon.png');
 
 module.exports = function (){
+
+  console.log(rootPath);
+  image.setTemplateImage(true);
 
   // Cree la fenetre du navigateur.
   let win = new BrowserWindow({
     width: 800,
     height: 800,
+    icon: image,
     webPreferences: {
       nodeIntegration: true
     }

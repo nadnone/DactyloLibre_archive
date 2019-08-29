@@ -1,23 +1,39 @@
 {
   "name": "dactylolibre",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Programme de dactylographie libre",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "build-wind": "electron-packager ./ DactyloLibre --platform=win32 --app-copyright=MIT --app-version=1.0.0 --arch=x64 --out dist/",
-    "setup-wind": "electron-installer-windows --src dist/DactyloLibre-win32-x64/ --dest dist/installers/"
+    "build-wind": "electron-packager ./ DactyloLibre --platform=win32 --app-copyright=MIT --app-version=1.0.1 --arch=x64 --icon=res/icons/icon.ico --out dist/",
+    "build-linux": "electron-builder -l"
   },
   "author": "Nadir Felder <contact@nadirfelder.xyz>",
   "license": "MIT",
   "devDependencies": {
     "electron": "*",
-    "electron-installer-windows": "^2.0.0",
-    "electron-packager": "^14.0.4"
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.4",
+    "electron-winstaller": "^4.0.0"
   },
   "dependencies": {
     "appdata-path": "^1.0.0",
-    "fs": "^0.0.1-security"
+    "electron-root-path": "^1.0.9",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "build": {
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "snap"
+      ],
+      "executableName": "dactyloLibre",
+      "icon": "./res/icons/icon.png",
+      "synopsis": "Programme de dactylographie libre",
+      "category": "Office"
+    }
   }
 }

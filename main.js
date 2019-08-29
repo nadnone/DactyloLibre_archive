@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, webContents, dialog, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, webContents, dialog, ipcMain, session} = require('electron');
 const electron = require("electron");
 
 
@@ -14,8 +14,11 @@ let t = 0;
 let scoreMax = 0;
 let what2write_str = false;
 let what2write_path = false;
+let fautes = 0;
 
-
+ipcMain.on("fautes", (event, arg) => {
+  fautes = arg;
+});
 
 ipcMain.on("writer", (event, arg) => {
   reader = what2write_str.charAt(emplacement);
@@ -62,7 +65,7 @@ function timer(){
     }, (response) => {
       if(response !== null && response !== undefined){
           createStatswindow();
-          statsWindowListener(emplacement+1, t);
+          statsWindowListener(emplacement+1, t, fautes);
       }
     });
   }
