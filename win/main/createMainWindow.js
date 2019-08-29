@@ -34,14 +34,12 @@ module.exports = function (){
         click: () => {
           electron.shell.openExternal("https://github.com/spoutnik911/DactyloLibre");
         }
-      }
-      ,
+      },
       {
         label: "Scores",
         click: () => {
           createStatsWindow();
           statsWindowListener(0, 0, 0);
-
         }
       }
   ];

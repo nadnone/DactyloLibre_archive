@@ -16,9 +16,9 @@ window.onload = () => {
 
 
 function init(){
-  showBestScore();
   afficherScore();
   lireScores();
+  showBestScore();
 }
 
 function afficherScore(){
