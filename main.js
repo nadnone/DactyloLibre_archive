@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, webContents, dialog, ipcMain, session} = require('electron');
+const { app, BrowserWindow, Menu, webContents, dialog, ipcMain} = require('electron');
 const electron = require("electron");
 
 

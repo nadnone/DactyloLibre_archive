@@ -1,8 +1,10 @@
 const { app, BrowserWindow, Menu, webContents, dialog, ipcMain } = require('electron');
 const electron = require("electron");
-let path = require('path');
 const nativeImage = require("electron").nativeImage;
 const rootPath = require("electron-root-path").rootPath;
+
+const createStatsWindow = require('../../win/stats/createStatsWindow.js');
+const statsWindowListener = require('../../win/stats/statsWindowListener.js');
 
 let image = nativeImage.createFromPath(rootPath + '/res/icons/icon.png');
 
@@ -27,12 +29,21 @@ module.exports = function (){
     app.quit();
   });
   const template = [
-    {
-      label: "A propos",
-      click: () => {
-        electron.shell.openExternal("https://github.com/spoutnik911/DactyloLibre");
+      {
+        label: "A propos",
+        click: () => {
+          electron.shell.openExternal("https://github.com/spoutnik911/DactyloLibre");
+        }
       }
-    }
+      ,
+      {
+        label: "Scores",
+        click: () => {
+          createStatsWindow();
+          statsWindowListener(0, 0, 0);
+
+        }
+      }
   ];
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);

@@ -9,7 +9,7 @@ let timerUpdate;
 let waitFor;
 let initialized = false;
 let argMemo;
-let fautes = 0;
+let fautes = 1;
 
 window.onload = () => {
   init();
@@ -47,7 +47,8 @@ function compare_text(){
           ipc.send("initW2W");
       }
       else if(event.keyCode === 32 && initialized && !isStarted){
-          document.getElementById("start_info").innerText = "Le temps est compté !";
+          document.getElementById("start_info_toolbar").innerText = "Le temps est compté !";
+          document.getElementById("start_info").innerText = "";
           timerUpdate = setInterval(update, 600);
           isStarted = true;
           ipc.send("starter", true);
@@ -106,4 +107,5 @@ ipc.on("initW2W", (event, arg) => {
   reader = arg;
   generate_reader();
   initialized = true;
+  document.getElementById("start_info").innerText = "Re-Pressez sur espace pour lancer le timer";
 });

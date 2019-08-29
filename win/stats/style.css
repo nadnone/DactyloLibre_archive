@@ -33,7 +33,7 @@ body, html {
   flex-direction: column;
   overflow-y: auto;
   width: 100vw;
-  height: 70vh;
+  height: 65vh;
 }
 .tableScore {
   background-color: rgba(44, 62, 80, 1);

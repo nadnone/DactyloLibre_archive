@@ -87,3 +87,6 @@ font {
 #affichage_readerm1, #affichage_readerm2 {
   color: rgb(11, 156, 30);
 }
+#start_info{
+  text-align: center;
+}

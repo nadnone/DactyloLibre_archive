@@ -16,42 +16,64 @@ window.onload = () => {
 
 
 function init(){
+  showBestScore();
   afficherScore();
+  lireScores();
 }
 
 function afficherScore(){
   ipc.send("score-request");
 }
 
-ipc.on("score-reply", (event, arg) => {
-  let data = arg.split(",");
-  score = data[0];
-  temps = data[1];
-  fautes = data[2];
+function showBestScore(){
+  try {
+    let fileR = fs.readFileSync(getAppdataPath("dactylolibre")+"/stats");
 
-  let scoreShow = (parseFloat(score)/parseFloat(temps)).toString();
+    fileR = fileR.toString().split("\n");
 
-  function getdecimales(score_local){
-    if(score_local.split(".") !== null && score_local.split(".") !== undefined){
-      score_local = score_local.split(".");
-      if(score_local[1] !== null && score_local[1] !== undefined){
-        score_local = score_local[0] + "." + score_local[1].charAt(0) + score_local[1].charAt(1);
+    let nbMax = 0;
+    let nbMaxLine = 0;
+    for (var i = 0; i < fileR.length; i++) {
+
+      let f = fileR[i].split(",");
+      let score_local = f[0]; let temps_local = f[1]; let fautes_local = f[3];
+
+      if((parseFloat(score_local)-parseFloat(fautes_local))/parseFloat(temps_local) > nbMax){
+        nbMax = (parseFloat(score_local)-parseFloat(fautes_local))/parseFloat(temps_local);
+        nbMaxLine = i;
       }
     }
 
-    return score_local
-  }
+    let score = fileR[nbMaxLine].split(",")[0];
+    let temps = fileR[nbMaxLine].split(",")[1];
+    let fautes = fileR[nbMaxLine].split(",")[3];
+
+      let scoreShow = (parseFloat(score)/parseFloat(temps)).toString();
+
+      function getdecimales(score_local){
+        if(score_local.split(".") !== null && score_local.split(".") !== undefined){
+          score_local = score_local.split(".");
+          if(score_local[1] !== null && score_local[1] !== undefined){
+            score_local = score_local[0] + "." + score_local[1].charAt(0) + score_local[1].charAt(1);
+          }
+        }
+
+        return score_local
+      }
+
+      if(parseFloat(getdecimales(scoreShow)) > 1){
+        document.getElementById('sChar').innerText = "s";
+      }
+      scoreSpan.innerText = getdecimales(scoreShow);
 
 
-  scoreSpan.innerText = getdecimales(scoreShow);
 
-  try {
-    let d = new Date();
-    fs.appendFileSync(getAppdataPath("dactylolibre")+"/stats", score + "," + temps + "," + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "," + fautes + "\n");
   } catch (e) {
     console.log(e);
   }
+}
 
+function lireScores(){
   try {
     let fileR = fs.readFileSync(getAppdataPath("dactylolibre")+"/stats");
     fileR = fileR.toString().split("\n");
@@ -118,6 +140,25 @@ ipc.on("score-reply", (event, arg) => {
 
   } catch (e) {
     console.log(e);
+  }
+
+}
+
+ipc.on("score-reply", (event, arg) => {
+
+  let data = arg.split(",");
+  score = data[0];
+  temps = data[1];
+  fautes = parseInt(data[2])-1;
+
+  if(parseFloat(score) > 0 && parseFloat(temps) > 0){
+
+      try {
+        let d = new Date();
+        fs.appendFileSync(getAppdataPath("dactylolibre")+"/stats", score + "," + temps + "," + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + "," + fautes + "\n");
+      } catch (e) {
+        console.log(e);
+      }
   }
 
 });
